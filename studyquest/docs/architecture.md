@@ -4,7 +4,7 @@
 
 ## 1. Overview
 ```
-[Mobile app: React Native (Expo)]
+[Web browser: React app (Vite)]
           |  HTTPS / JSON (REST)
 [API server: Node.js + Express]
    |            |              |
@@ -14,7 +14,7 @@
 ## 2. Components
 | Component | Responsibility |
 |-----------|----------------|
-| Mobile app | Screens: auth, subjects, upload, quiz play, results, progress, profile |
+| Web frontend (React) | Pages: login/register, subjects, upload, quiz play, results, progress, profile |
 | API server | Auth, file upload, text extraction, quiz generation orchestration, scoring, XP/levels/streaks |
 | PostgreSQL | Users, subjects, materials, topics, quizzes, questions, attempts, answers, xp_events, streaks |
 | File storage | Original uploaded PDFs/DOCX (private per user) |
@@ -39,12 +39,13 @@
 - **Weak topic:** average below 60% across 2 or more attempts.
 
 ## 5. Key flows
-1. **Upload → quiz:** upload file → store → extract text → split into topics → user selects material → API sends topic text to LLM → validates JSON → saves quiz.
-2. **Take quiz:** app fetches questions → collects answers → submit → server scores → writes attempt → awards XP → updates level and streak → returns results.
+1. **Upload → quiz:** upload file from the browser → store → extract text → split into topics → user selects material → API sends topic text to LLM → validates JSON → saves quiz.
+2. **Take quiz:** page fetches questions → collects answers → submit → server scores → writes attempt → awards XP → updates level and streak → returns results.
 
 ## 6. Security notes
-- Passwords hashed (bcrypt/argon2); JWT or session tokens.
+- Passwords hashed (bcrypt/argon2); JWT in an httpOnly cookie, or server session.
 - Every query filtered by `user_id`; files not publicly accessible.
+- CORS limited to the frontend's origin (`FRONTEND_URL`); HTTPS in production.
 - Secrets only in `.env` (never committed); see `.env.example`.
 
 ## 7. Risks
@@ -53,3 +54,4 @@
 | LLM returns invalid or low-quality questions | Validate JSON schema, retry, allow user to report a bad question |
 | Scanned PDFs have no text | Detect and show "no readable text"; OCR is out of scope for MVP |
 | Cost/latency of LLM calls | Limit questions per quiz; cache by material and topic |
+| Large uploads freeze the page | Enforce 10 MB limit client and server side; show upload progress |

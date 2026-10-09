@@ -2,6 +2,7 @@
 
 ## 1. Problem and users
 Students review with static notes and PDFs, which gets repetitive, gives little active practice, and makes it hard to see which topics need attention.
+**Product:** StudyQuest is a web application that students open in their browser.
 **Primary users:** college/university students reviewing their own materials.
 **Secondary users:** instructors who may receive achievement certificates for extra academic points.
 
@@ -26,8 +27,8 @@ Estimates are in hours. IDs match Trello card IDs.
 | MAT-02 | Extract text and split into topics | Must | 10 | MAT-01 |
 | MAT-03 | Organize materials and quizzes by subject | Should | 8 | MAT-01 |
 | QUIZ-01 | Generate multiple-choice and true/false questions | Must | 16 | MAT-02 |
-| QUIZ-02 | Quiz-taking screen | Must | 10 | QUIZ-01 |
-| QUIZ-03 | Scoring and results screen | Must | 6 | QUIZ-02 |
+| QUIZ-02 | Quiz-taking page | Must | 10 | QUIZ-01 |
+| QUIZ-03 | Scoring and results page | Must | 6 | QUIZ-02 |
 | QUIZ-04 | Fill-in-the-blank and identification types | Should | 12 | QUIZ-01, GAME-02 |
 | GAME-01 | Award XP for completed quizzes | Must | 6 | QUIZ-03 |
 | GAME-02 | Levels and unlockable quiz types/difficulty | Must | 8 | GAME-01 |
@@ -47,15 +48,16 @@ Estimates are in hours. IDs match Trello card IDs.
 - [ ] Invalid or duplicate email shows a clear error.
 - [ ] Valid login returns a session; wrong password is rejected.
 - [ ] Passwords are stored hashed, never in plain text.
+- [ ] Logged-out users are redirected to the login page when opening a protected page.
 
 ### AUTH-02 – Profile and settings (Could)
-**As a** student, **I want** to edit my display name and avatar **so that** the app feels personal.
+**As a** student, **I want** to edit my display name and avatar **so that** the site feels personal.
 - [ ] Display name can be changed and persists.
 - [ ] Profile shows current level and XP.
 
 ### MAT-01 – Upload study material (Must)
-**As a** student, **I want** to upload a PDF or DOCX **so that** StudyQuest can make quizzes from it.
-- [ ] PDF and DOCX files up to 10 MB are accepted.
+**As a** student, **I want** to upload a PDF or DOCX from my browser **so that** StudyQuest can make quizzes from it.
+- [ ] PDF and DOCX files up to 10 MB are accepted (file picker and drag-and-drop).
 - [ ] Other file types or oversize files are rejected with a message.
 - [ ] Uploaded file appears in the user's materials list.
 - [ ] A user cannot see another user's files.
@@ -79,11 +81,12 @@ Estimates are in hours. IDs match Trello card IDs.
 - [ ] Every question is tagged with its source topic.
 - [ ] Generation failure shows a retry option.
 
-### QUIZ-02 – Quiz-taking screen (Must)
+### QUIZ-02 – Quiz-taking page (Must)
 **As a** student, **I want** to answer questions one at a time **so that** I can focus.
 - [ ] Questions are shown one at a time with a progress indicator.
 - [ ] The selected answer is saved before moving on.
 - [ ] A quiz can be submitted only after all questions are answered.
+- [ ] Refreshing the browser does not lose answers already given.
 
 ### QUIZ-03 – Scoring and results (Must)
 **As a** student, **I want** to see my score and correct answers **so that** I learn from mistakes.
@@ -95,12 +98,12 @@ Estimates are in hours. IDs match Trello card IDs.
 **As a** student, **I want** harder question types **so that** I can test recall.
 - [ ] Both types are locked until the required level is reached (see GAME-02).
 - [ ] Typed answers are compared case-insensitively and trimmed.
-- [ ] Results screen shows expected answer for wrong responses.
+- [ ] Results page shows expected answer for wrong responses.
 
 ### GAME-01 – Award XP (Must)
 **As a** student, **I want** XP for finishing quizzes **so that** I feel rewarded.
 - [ ] XP awarded = base XP × score percentage (formula documented in docs/architecture.md).
-- [ ] XP total updates immediately after the results screen.
+- [ ] XP total updates immediately after the results page.
 - [ ] XP is awarded once per attempt.
 
 ### GAME-02 – Levels and unlocks (Must)
@@ -142,7 +145,7 @@ Estimates are in hours. IDs match Trello card IDs.
 
 ### CERT-04 – Study reminders (Could)
 - [ ] User can set a daily reminder time and turn it off.
-- [ ] Notification fires at the chosen time on a test device.
+- [ ] Reminder is delivered by email (and/or browser notification if the user allows it) at the chosen time.
 
 ## 5. MVP scope
 The first working release covers all **Must** features: AUTH-01, MAT-01, MAT-02, QUIZ-01, QUIZ-02, QUIZ-03, GAME-01, GAME-02.
@@ -152,4 +155,5 @@ Result: a student can sign up, upload a document, get an MCQ/TF quiz, see a scor
 ## 6. Non-functional requirements
 - Uploaded files are private to their owner.
 - Quiz generation completes within 30 seconds for a 20-page document (target).
-- Works on Android and iOS via one codebase.
+- Works in current versions of Chrome, Edge, Firefox and Safari.
+- Responsive layout: usable on laptop and phone-sized browser windows.

@@ -1,6 +1,6 @@
 # StudyQuest
 
-StudyQuest is a mobile learning app that turns students' own study materials into interactive quizzes, with XP, levels, streaks and unlockable quiz types.
+StudyQuest is a web application that turns students' own study materials into interactive quizzes, with XP, levels, streaks and unlockable quiz types.
 
 **Task board:** <PASTE TRELLO BOARD URL>
 
@@ -19,10 +19,14 @@ Students review with static notes and PDFs, which becomes repetitive, offers lit
 Full backlog: [docs/requirements.md](docs/requirements.md)
 
 ## Tech stack (proposed)
-React Native (Expo) · Node.js + Express · PostgreSQL · LLM API for question generation
+React (Vite) · Node.js + Express · PostgreSQL · LLM API for question generation
 
 ## Team
-See [docs/team-roles.md](docs/team-roles.md).
+- John Vincent Barcastigue (@Barcastigue) – project lead, backend
+- Reniel Rey Bogoy (@toastghost505) – backend, file processing
+- Ralph Benedict Empeynado – UI, testing
+
+Details: [docs/team-roles.md](docs/team-roles.md)
 
 ## Setup
 ```bash
@@ -31,8 +35,8 @@ cd studyquest
 cp .env.example .env      # fill in your own values; never commit .env
 # Backend
 cd src/backend && npm install && npm run dev
-# Mobile
-cd ../mobile && npm install && npx expo start
+# Web frontend (new terminal)
+cd src/frontend && npm install && npm run dev
 ```
 > Folders under `src/` are created during Sprint 1; update these steps when they exist.
 

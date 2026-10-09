@@ -12,7 +12,7 @@
 | Screenshots folder/link | |
 
 ## Proposal summary
-**StudyQuest** is a mobile learning app where students upload their own PDFs or documents and receive auto-generated quizzes. Students earn XP, level up, build streaks and unlock new quiz types. The app tracks performance per subject and gives extra practice on weak topics. This addresses repetitive static review and the difficulty of knowing what to study next.
+**StudyQuest** is a web application where students upload their own PDFs or documents and receive auto-generated quizzes. Students earn XP, level up, build streaks and unlock new quiz types. The site tracks performance per subject and gives extra practice on weak topics. This addresses repetitive static review and the difficulty of knowing what to study next.
 
 ## Screenshots to capture
 1. Trello board with all six lists and cards
@@ -35,16 +35,16 @@
 ## Member contribution matrix
 Fill in after the sprint (use ✔ or hours).
 
-| Contribution | Member A | Member B | Member C | Member D |
-|--------------|----------|----------|----------|----------|
-| Backlog and user stories | | | | |
-| Trello setup | | | | |
-| GitHub setup and docs | | | | |
-| Issues and linking | | | | |
-| Branch / commit / PR | | | | |
-| Peer review done | | | | |
-| Sprint 1 implementation task | | | | |
-| Sprint 1 verification task | | | | |
-| Demo presentation | | | | |
-| **Estimated hours** | | | | |
-| **Signature / date** | | | | |
+| Contribution | John Vincent Barcastigue | Reniel Rey Bogoy | Ralph Benedict Empeynado |
+|--------------|--------------------------|------------------|--------------------------|
+| Backlog and user stories | | | |
+| Trello setup | | | |
+| GitHub setup and docs | | | |
+| Issues and linking | | | |
+| Branch / commit / PR | | | |
+| Peer review done | | | |
+| Sprint 1 implementation task | | | |
+| Sprint 1 verification task | | | |
+| Demo presentation | | | |
+| **Estimated hours** | | | |
+| **Signature / date** | | | |

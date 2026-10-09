@@ -1,69 +1,79 @@
 # GitHub Setup & Traceability Walkthrough
 
-## A. Create the repository
-1. GitHub → **New repository** → name `studyquest` → **Private** → tick "Add README" (or push the provided files).
-2. **Settings → Collaborators** → invite each member and the instructor.
-3. Upload/push the provided scaffold:
+Team: John Vincent Barcastigue (@Barcastigue), Reniel Rey Bogoy (@toastghost505), Ralph Benedict Empeynado.
+
+## A. Repository setup (done once by John)
+1. Private repo `studyquest` created on GitHub, scaffold pushed to `main`.
+2. Collaborators added: Reniel, Ralph, instructor.
+3. Branch protection on `main`: pull request required, 1 approval, no force pushes.
+4. Trello board URL pasted in README.
+
+## B. Two features to trace
+
+| | Feature 1 | Feature 2 |
+|---|-----------|-----------|
+| Trello card | AUTH-01a — Register/login API | MAT-01a — Upload endpoint |
+| Owner / Reviewer | John / Reniel | Reniel / John |
+| GitHub issue | #1 `[AUTH-01a] Implement user login API` | #2 `[MAT-01a] Implement study material upload` |
+| Branch | `feature/1-user-login` | `feature/2-material-upload` (optional) |
+| Full chain (PR) | Yes | Issue + card link only |
+
+> Issues and PRs share one number sequence in GitHub. The first issue you create is #1, the second #2, and the first PR will be #3. If your numbers differ, use yours in branch names and commits.
+
+## C. Create the issues
+1. GitHub → **Issues → New issue** → pick the *Feature / task* template.
+2. Fill in: title, link to the Trello card, user story, acceptance criteria (copy from the card), owner and reviewer, estimate and due date.
+3. Assign the issue to its owner.
+4. Copy the issue URL into the Trello card's **GitHub Issue** field, and paste the card URL into the issue. Both must point to each other.
+
+## D. Branch, change, commit (John, Feature 1)
 ```bash
-git clone https://github.com/<you>/studyquest.git
-# copy the provided studyquest/ files into the clone
-cd studyquest
-git add .
-git commit -m "docs: add project scaffold and documentation"
-git push origin main
-```
-4. **Settings → Branches → Add rule** for `main`: require a pull request, 1 approval, block force pushes.
-5. Paste the Trello URL into README.
-
-## B. Traceability exercise (two features)
-
-### Feature 1 – AUTH-01 Register and log in
-- **Trello card:** `AUTH-01 — Register and log in`
-- **GitHub issue:** title `[AUTH-01] Implement user login` (use the feature issue template). Paste the card URL into the issue and the issue URL into the card's *GitHub Issue* field.
-- **Branch:** `feature/<issue-number>-user-login` (e.g. `feature/1-user-login`)
-
-### Feature 2 – MAT-01 Upload study material
-- **Trello card:** `MAT-01 — Upload PDF/DOCX study material`
-- **GitHub issue:** `[MAT-01] Implement study material upload`
-- Link both ways as above. (Branch/PR optional for this one.)
-
-> Issue numbers depend on your repo. If AUTH-01 is issue #1, use `feature/1-user-login`.
-
-## C. Minimal change for the branch (pick one)
-Easiest evidence of traceability, no code needed:
-```bash
-git checkout main && git pull
+git checkout main
+git pull
 git checkout -b feature/1-user-login
+
 mkdir -p src/backend/auth
-echo "# Auth module (AUTH-01)\nPlanned: POST /auth/register, POST /auth/login" > src/backend/auth/README.md
-git add .
+printf "# Auth module (AUTH-01a)\n\nPlanned endpoints:\n- POST /auth/register\n- POST /auth/login\n\nPasswords are hashed (bcrypt/argon2). See docs/requirements.md, AUTH-01.\n" > src/backend/auth/README.md
+
+git add src/backend/auth/README.md
 git commit -m "docs(auth): add auth module scaffold for login (#1)"
 git push -u origin feature/1-user-login
 ```
-Alternatively add a stub `login.js` or a login screen placeholder.
+Move the Trello card to **In Progress** before starting (it has an owner and acceptance criteria).
 
-## D. Pull request
-- Title: `Add user login scaffold` · Description: `Closes #1` plus the template sections (card URL, how to test, evidence).
-- Request a teammate (not the author) as reviewer.
+## E. Pull request
+1. GitHub shows "Compare & pull request" after the push; click it.
+2. **Title:** `Add user login API scaffold`
+3. **Description:** use the template; include `Closes #1`, the Trello card URL, how to test, and evidence.
+4. **Reviewers:** request Reniel (not the author).
+5. Move the Trello card to **For Review**.
 
-## E. Peer review record (fill in and keep in the PR + card)
+## F. Peer review (Reniel)
+Reniel opens **Files changed**, checks the CONTRIBUTING.md review checklist, leaves at least one comment, then **Review changes → Approve** (or Request changes). Record it:
+
 | Item | Notes |
 |------|-------|
-| Reviewer | |
+| Reviewer | Reniel Rey Bogoy |
 | Date | |
-| Findings | e.g. "README missing endpoint response format" |
-| Changes made | |
-| Verification evidence | screenshot of PR approval / test output |
+| Findings | e.g. "README should list the response format for login" |
+| Changes made | e.g. "Added response format and error codes" (John pushes a follow-up commit) |
+| Verification evidence | screenshot of the approved PR + checklist ticked |
 | Decision | Approved / Changes requested |
 
-## F. Update the card
-1. PR opened → move card to **For Review**.
-2. Approved and merged → **Testing**.
-3. Acceptance checks done, evidence attached → **Done**.
+## G. Merge and update the card
+1. After approval, John clicks **Merge pull request** (issue #1 closes automatically).
+2. Trello: card → **Testing**; run the acceptance checks; attach the evidence (PR link, screenshots) to the card.
+3. When the checks pass → **Done**.
 
-## G. End-to-end chain (what you should be able to show)
+## H. Feature 2 (issue + card link)
+Reniel creates issue #2, links it with the MAT-01a card both ways, and (optionally) repeats D–G with branch `feature/2-material-upload`, John reviewing.
+
+## I. What you show in the demo
 ```
-Card AUTH-01 → Issue #1 → Branch feature/1-user-login
+Card AUTH-01a  ←→  Issue #1  →  Branch feature/1-user-login
 → Commit "docs(auth): add auth module scaffold for login (#1)"
-→ PR "Add user login scaffold" (Closes #1) → peer review → Done
+→ PR #3 "Add user login API scaffold" (Closes #1)
+→ Review by Reniel (approved) → Merged → Card in Done
+Card MAT-01a  ←→  Issue #2
 ```
+Screenshots to capture: both issues, the Trello card showing the issue URL, the branch list, the commit, the PR with approval, the card in Done.
