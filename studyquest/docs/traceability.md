@@ -2,7 +2,7 @@
 
 Team: John Vincent Barcastigue (@Barcastigue), Reniel Rey Bogoy (@toastghost505), Ralph Benedict Empeynado.
 
-## A. Repository setup (done once by John)
+## A. Repository setup (done once by Vincent)
 1. Private repo `studyquest` created on GitHub, scaffold pushed to `main`.
 2. Collaborators added: Reniel, Ralph, instructor.
 3. Branch protection on `main`: pull request required, 1 approval, no force pushes.
@@ -13,7 +13,7 @@ Team: John Vincent Barcastigue (@Barcastigue), Reniel Rey Bogoy (@toastghost505)
 | | Feature 1 | Feature 2 |
 |---|-----------|-----------|
 | Trello card | AUTH-01a — Register/login API | MAT-01a — Upload endpoint |
-| Owner / Reviewer | John / Reniel | Reniel / John |
+| Owner / Reviewer | Vincent / Reniel | Reniel / Vincent |
 | GitHub issue | #1 `[AUTH-01a] Implement user login API` | #2 `[MAT-01a] Implement study material upload` |
 | Branch | `feature/1-user-login` | `feature/2-material-upload` (optional) |
 | Full chain (PR) | Yes | Issue + card link only |
@@ -26,7 +26,7 @@ Team: John Vincent Barcastigue (@Barcastigue), Reniel Rey Bogoy (@toastghost505)
 3. Assign the issue to its owner.
 4. Copy the issue URL into the Trello card's **GitHub Issue** field, and paste the card URL into the issue. Both must point to each other.
 
-## D. Branch, change, commit (John, Feature 1)
+## D. Branch, change, commit (Vincent, Feature 1)
 ```bash
 git checkout main
 git pull
@@ -56,17 +56,17 @@ Reniel opens **Files changed**, checks the CONTRIBUTING.md review checklist, lea
 | Reviewer | Reniel Rey Bogoy |
 | Date | |
 | Findings | e.g. "README should list the response format for login" |
-| Changes made | e.g. "Added response format and error codes" (John pushes a follow-up commit) |
+| Changes made | e.g. "Added response format and error codes" (Vincent pushes a follow-up commit) |
 | Verification evidence | screenshot of the approved PR + checklist ticked |
 | Decision | Approved / Changes requested |
 
 ## G. Merge and update the card
-1. After approval, John clicks **Merge pull request** (issue #1 closes automatically).
+1. After approval, Vincent clicks **Merge pull request** (issue #1 closes automatically).
 2. Trello: card → **Testing**; run the acceptance checks; attach the evidence (PR link, screenshots) to the card.
 3. When the checks pass → **Done**.
 
 ## H. Feature 2 (issue + card link)
-Reniel creates issue #2, links it with the MAT-01a card both ways, and (optionally) repeats D–G with branch `feature/2-material-upload`, John reviewing.
+Reniel creates issue #2, links it with the MAT-01a card both ways, and (optionally) repeats D–G with branch `feature/2-material-upload`, Vincent reviewing.
 
 ## I. What you show in the demo
 ```

@@ -15,7 +15,7 @@
 - **Blocked** (black) for stuck cards
 
 ## 4. Custom Fields (Board menu → Power-Ups → Custom Fields)
-Add: `Card ID` (text) · `Estimate (h)` (number) · `Reviewer` (dropdown: John, Reniel, Ralph) · `GitHub Issue` (text/URL) · `Sprint` (dropdown: Sprint 1, 2, 3).
+Add: `Card ID` (text) · `Estimate (h)` (number) · `Reviewer` (dropdown: Vincent, Reniel, Ralph) · `GitHub Issue` (text/URL) · `Sprint` (dropdown: Sprint 1, 2, 3).
 Also use Trello's built-in **Members** (owner/assignee) and **Due date**.
 
 ## 5. Card template
@@ -51,15 +51,15 @@ Link each one to its feature card by writing the feature ID in the description (
 
 | Card ID | Title | Owner | Reviewer | Est (h) | Due |
 |---------|-------|-------|----------|---------|-----|
-| SETUP-01 | Repo scaffold, branch protection, invites | John | Reniel | 3 | Mon 12 Oct |
-| SETUP-02 | Trello board, 18 cards, rules | John | Ralph | 3 | Mon 12 Oct |
-| SETUP-03 | Database schema and migrations | Reniel | John | 3 | Tue 13 Oct |
-| AUTH-01a | Register/login API with hashed passwords | John | Reniel | 7 | Wed 14 Oct |
-| MAT-01a | Upload endpoint: type/size validation, private storage | Reniel | John | 6 | Wed 14 Oct |
-| AUTH-01b | Web register/login pages (React) | Ralph | John | 6 | Thu 15 Oct |
-| MAT-02 | Extract text from PDF/DOCX and split into topics | Reniel | John | 4 | Thu 15 Oct |
+| SETUP-01 | Repo scaffold, branch protection, invites | Vincent | Reniel | 3 | Mon 12 Oct |
+| SETUP-02 | Trello board, 18 cards, rules | Vincent | Ralph | 3 | Mon 12 Oct |
+| SETUP-03 | Database schema and migrations | Reniel | Vincent | 3 | Tue 13 Oct |
+| AUTH-01a | Register/login API with hashed passwords | Vincent | Reniel | 7 | Wed 14 Oct |
+| MAT-01a | Upload endpoint: type/size validation, private storage | Reniel | Vincent | 6 | Wed 14 Oct |
+| AUTH-01b | Web register/login pages (React) | Ralph | Vincent | 6 | Thu 15 Oct |
+| MAT-02 | Extract text from PDF/DOCX and split into topics | Reniel | Vincent | 4 | Thu 15 Oct |
 | TEST-01 | Test cases + evidence for AUTH-01 | Ralph | Reniel | 3 | Fri 16 Oct |
-| TEST-02 | Test cases + evidence for MAT-01/MAT-02 | Ralph | John | 3 | Fri 16 Oct |
+| TEST-02 | Test cases + evidence for MAT-01/MAT-02 | Ralph | Vincent | 3 | Fri 16 Oct |
 
 Setup cards (SETUP-01 to 03) have no feature card. For them, use these acceptance criteria:
 - SETUP-01: repo is private; all members and instructor invited; `main` protected; scaffold files pushed.
