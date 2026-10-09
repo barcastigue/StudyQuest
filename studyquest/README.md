@@ -45,3 +45,6 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) for branch, commit and PR rules.
 
 ## Docs
 - [Requirements](docs/requirements.md) · [Architecture](docs/architecture.md) · [Team roles](docs/team-roles.md)
+
+## Trello
+   **Task board:** https://trello.com/b/wIG2UDZN/studyquest
