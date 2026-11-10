@@ -7,6 +7,15 @@ import java.time.LocalDateTime;
 @Table(name = "reminder")
 public class ReminderEntity {
 
+    /*
+    reminderId
+    message
+    remindAt
+    isDone
+    user
+    subject
+     */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reminder_id")

@@ -7,6 +7,7 @@ import com.csit321g6.luminance.studyquest.service.AttemptAnswerService;
 
 @RestController
 @RequestMapping("/attemptanswer/api")
+// needed for the React front end (CRA = 3000, Vite = 5173)
 @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"})
 public class AttemptAnswerController {
 

@@ -20,7 +20,6 @@ public class AttemptAnswerService {
     }
 
     // C - Create
-    // method will return the record being added
     public AttemptAnswerEntity postAttemptAnswer(AttemptAnswerEntity attemptanswer) {
         return repo.save(attemptanswer);
     }

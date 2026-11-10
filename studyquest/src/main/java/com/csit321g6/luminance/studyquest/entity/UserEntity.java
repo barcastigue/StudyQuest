@@ -7,6 +7,17 @@ import java.time.LocalDate;
 @Table(name = "users")
 public class UserEntity {
 
+    /*
+    userId
+    username
+    email
+    password
+    xp
+    level
+    currentStreak
+    lastActiveDate
+     */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")

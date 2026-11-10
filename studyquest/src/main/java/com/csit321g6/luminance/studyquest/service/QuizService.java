@@ -20,7 +20,6 @@ public class QuizService {
     }
 
     // C - Create
-    // method will return the record being added
     public QuizEntity postQuiz(QuizEntity quiz) {
         return repo.save(quiz);
     }

@@ -20,7 +20,6 @@ public class SubjectService {
     }
 
     // C - Create
-    // method will return the record being added
     public SubjectEntity postSubject(SubjectEntity subject) {
         return repo.save(subject);
     }

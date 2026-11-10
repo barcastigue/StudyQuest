@@ -6,6 +6,13 @@ import jakarta.persistence.*;
 @Table(name = "subject")
 public class SubjectEntity {
 
+    /*
+    subjectId
+    name
+    description
+    user
+     */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "subject_id")

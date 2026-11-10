@@ -20,7 +20,6 @@ public class QuestionService {
     }
 
     // C - Create
-    // method will return the record being added
     public QuestionEntity postQuestion(QuestionEntity question) {
         return repo.save(question);
     }

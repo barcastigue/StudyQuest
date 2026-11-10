@@ -7,6 +7,16 @@ import java.time.LocalDateTime;
 @Table(name = "attempt")
 public class AttemptEntity {
 
+    /*
+    attemptId
+    score
+    xpEarned
+    startedAt
+    completedAt
+    user
+    quiz
+     */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "attempt_id")

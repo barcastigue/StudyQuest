@@ -20,7 +20,6 @@ public class TopicService {
     }
 
     // C - Create
-    // method will return the record being added
     public TopicEntity postTopic(TopicEntity topic) {
         return repo.save(topic);
     }

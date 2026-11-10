@@ -7,6 +7,15 @@ import java.time.LocalDate;
 @Table(name = "milestone")
 public class MilestoneEntity {
 
+    /*
+    milestoneId
+    title
+    requiredStreak
+    requiredLevel
+    achievedDate
+    user
+     */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "milestone_id")

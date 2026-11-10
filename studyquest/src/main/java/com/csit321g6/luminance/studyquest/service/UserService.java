@@ -20,7 +20,6 @@ public class UserService {
     }
 
     // C - Create
-    // method will return the record being added
     public UserEntity postUser(UserEntity user) {
         return repo.save(user);
     }

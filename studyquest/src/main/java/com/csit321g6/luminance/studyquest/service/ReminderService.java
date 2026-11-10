@@ -20,7 +20,6 @@ public class ReminderService {
     }
 
     // C - Create
-    // method will return the record being added
     public ReminderEntity postReminder(ReminderEntity reminder) {
         return repo.save(reminder);
     }

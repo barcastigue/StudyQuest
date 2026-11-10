@@ -6,6 +6,12 @@ import jakarta.persistence.*;
 @Table(name = "quiz_type")
 public class QuizTypeEntity {
 
+    /*
+    quizTypeId
+    name
+    description
+    */
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quiz_type_id")

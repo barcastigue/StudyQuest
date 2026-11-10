@@ -10,7 +10,6 @@ import com.csit321g6.luminance.studyquest.service.MilestoneService;
 
 @RestController
 @RequestMapping("/milestone/api")
-// needed for the React front end (CRA = 3000, Vite = 5173)
 @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"})
 public class MilestoneController {
 

@@ -20,7 +20,6 @@ public class MilestoneService {
     }
 
     // C - Create
-    // method will return the record being added
     public MilestoneEntity postMilestone(MilestoneEntity milestone) {
         return repo.save(milestone);
     }

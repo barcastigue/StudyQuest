@@ -20,7 +20,6 @@ public class AttemptService {
     }
 
     // C - Create
-    // method will return the record being added
     public AttemptEntity postAttempt(AttemptEntity attempt) {
         return repo.save(attempt);
     }

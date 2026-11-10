@@ -20,7 +20,6 @@ public class StudyMaterialService {
     }
 
     // C - Create
-    // method will return the record being added
     public StudyMaterialEntity postStudyMaterial(StudyMaterialEntity studymaterial) {
         return repo.save(studymaterial);
     }

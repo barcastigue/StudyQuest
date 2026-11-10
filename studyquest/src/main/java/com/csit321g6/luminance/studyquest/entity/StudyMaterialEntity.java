@@ -7,6 +7,14 @@ import java.time.LocalDateTime;
 @Table(name = "study_material")
 public class StudyMaterialEntity {
 
+    /*
+    materialId
+    fileName
+    fileType
+    uploadedAt
+    subject
+     */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "material_id")
