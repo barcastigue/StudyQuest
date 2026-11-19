@@ -16,3 +16,9 @@ export function validateStudyFile(file) {
   }
   return "";
 }
+
+export const MAX_USERNAME_LENGTH = 50;
+export const isUsername = (value) => {
+  const trimmed = value.trim();
+  return trimmed.length > 0 && trimmed.length <= MAX_USERNAME_LENGTH;
+};

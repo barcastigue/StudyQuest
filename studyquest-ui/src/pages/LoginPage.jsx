@@ -10,8 +10,8 @@ export default function LoginPage() {
     <main className="login-page">
       <LoginBrandPanel />
       <LoginForm
-        onLogin={login}
-        onCreateAccount={() => toast("Account creation needs a connected backend. Log in with any email to try the demo.")}
+        onSuccess={login}
+        onRegistered={() => toast("Account created! You can log in now.")}
       />
     </main>
   );

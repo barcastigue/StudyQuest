@@ -14,7 +14,11 @@ export function AppProvider({ children }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  const login = useCallback(() => setLoggedIn(true), []);
+  // `account` is the AuthResponse from the backend (userId, username, email, ...)
+  const login = useCallback((account) => {
+    setUser({ id: account.userId, name: account.username, email: account.email });
+    setLoggedIn(true);
+  }, []);
   const logout = useCallback(() => {
     setLoggedIn(false);
     setScreen("dashboard");
