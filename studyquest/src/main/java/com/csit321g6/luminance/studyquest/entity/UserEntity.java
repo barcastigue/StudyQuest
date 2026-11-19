@@ -1,5 +1,6 @@
 package com.csit321g6.luminance.studyquest.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -7,17 +8,6 @@ import java.time.LocalDate;
 @Table(name = "users")
 public class UserEntity {
 
-    /*
-    userId
-    username
-    email
-    password
-    xp
-    level
-    currentStreak
-    lastActiveDate
-     */
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -29,6 +19,8 @@ public class UserEntity {
     @Column(name = "email", nullable = false, unique = true, length = 100)
     private String email;
 
+    // accepted when a request sends it, but never written back out in responses
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(name = "password", nullable = false, length = 255)
     private String password;
 

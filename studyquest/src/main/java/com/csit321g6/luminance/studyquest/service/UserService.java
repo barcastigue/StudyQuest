@@ -3,6 +3,7 @@ package com.csit321g6.luminance.studyquest.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.csit321g6.luminance.studyquest.entity.UserEntity;
@@ -15,12 +16,17 @@ public class UserService {
     @Autowired
     UserRepository repo;
 
+    @Autowired
+    PasswordEncoder encoder;
+
     public UserService() {
         super();
     }
 
     // C - Create
+    // method will return the record being added
     public UserEntity postUser(UserEntity user) {
+        user.setPassword(encoder.encode(user.getPassword())); // hash before saving
         return repo.save(user);
     }
 
@@ -35,7 +41,10 @@ public class UserService {
                 .orElseThrow(() -> new NameNotFoundException("User " + id + " does not exist!"));
             existing.setUsername(newDetails.getUsername());
             existing.setEmail(newDetails.getEmail());
-            existing.setPassword(newDetails.getPassword());
+            // only change the password if a new one was sent
+            if (newDetails.getPassword() != null && !newDetails.getPassword().isBlank()) {
+                existing.setPassword(encoder.encode(newDetails.getPassword()));
+            }
             existing.setXp(newDetails.getXp());
             existing.setLevel(newDetails.getLevel());
             existing.setCurrentStreak(newDetails.getCurrentStreak());

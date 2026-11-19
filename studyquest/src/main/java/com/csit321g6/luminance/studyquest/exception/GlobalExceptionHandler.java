@@ -8,23 +8,35 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // specific exception
+    private ResponseEntity<NameErrorResponse> build(HttpStatus status, String message) {
+        NameErrorResponse error = new NameErrorResponse();
+        error.setStatus(status.value());
+        error.setMessage(message);
+        error.setTimestamp(System.currentTimeMillis());
+        return new ResponseEntity<>(error, status);
+    }
+
+    // specific exceptions
     @ExceptionHandler
     public ResponseEntity<NameErrorResponse> handleException(NameNotFoundException ex) {
-        NameErrorResponse error = new NameErrorResponse();
-        error.setStatus(HttpStatus.NOT_FOUND.value());
-        error.setMessage(ex.getMessage());
-        error.setTimestamp(System.currentTimeMillis());
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        return build(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    // username/email already taken -> 409
+    @ExceptionHandler
+    public ResponseEntity<NameErrorResponse> handleDuplicate(DuplicateException ex) {
+        return build(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    // wrong username or password -> 401
+    @ExceptionHandler
+    public ResponseEntity<NameErrorResponse> handleInvalidCredentials(InvalidCredentialsException ex) {
+        return build(HttpStatus.UNAUTHORIZED, ex.getMessage());
     }
 
     // generic exception
     @ExceptionHandler
     public ResponseEntity<NameErrorResponse> handleException(Exception ex) {
-        NameErrorResponse error = new NameErrorResponse();
-        error.setStatus(HttpStatus.BAD_REQUEST.value());
-        error.setMessage(ex.getMessage());
-        error.setTimestamp(System.currentTimeMillis());
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+        return build(HttpStatus.BAD_REQUEST, ex.getMessage());
     }
 }
